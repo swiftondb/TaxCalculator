@@ -5,9 +5,9 @@ A basic tax calculator to demonstrate application structure and design patterns.
 
 ## Overview
 
-It has been created using the Clean Architecure (or an interpretation of it). The Application & Domain projects live at the centre and other projects depend on these.
+It has been created using the Clean Architecure (or an interpretation of it). The **Application** & **Domain** projects live at the centre and other projects depend on these.
 
-The Domain project contains just the entities used within the application (just TaxBand) and contains no business logic.
+The **Domain** project contains just the entities used within the application (just `TaxBand`) and contains no business logic.
 
 The **Application** project contaions the implementation of the actual logic required, in this case calculating tax based on multiple tax bands. This exposes interfaces for any external functionality it requires, for example, persisting data to a store.
 In this case, the **Application** project exposes an `IPersistence` interface which the **Infrastructure** project implements with the help of Entity Framework.
