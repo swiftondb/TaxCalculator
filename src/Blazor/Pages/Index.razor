@@ -1,0 +1,57 @@
+﻿@page "/"
+
+<PageTitle>Tax Calculator</PageTitle>
+
+<section class="mt-12 max-w-xl mx-auto p-8 bg-white border border-slate-500 rounded">
+    <h1 class="mb-4 text-left text-xl">Tax Calculator</h1>
+
+    <EditForm Model="SalaryInput" OnInvalidSubmit="HandleInvalidSubmit" OnValidSubmit="HandleValidSubmit">
+        <Blazored.FluentValidation.FluentValidationValidator />
+
+        <label for="grossAnnualSalaaryInput">Gross Annual Salary:</label>
+        <InputNumber id="grossAnnualSalaaryInput" type="number" class="ml-2 mr-4 p-2 border border-slate-500 rounded" @bind-Value="SalaryInput.GrossAnnualSalary" step="0.01" />
+
+        <button type="submit" class="px-4 py-2 bg-fuchsia-600 hover:bg-fuchsia-500 text-white rounded hover:transition">
+            Calculate
+        </button>
+
+        <ValidationMessage For="@(() => SalaryInput.GrossAnnualSalary)" />
+
+    </EditForm>
+
+    @if (errorMessage != null)
+    {
+        <div class="mt-4 p-2 bg-red-100 text-red-900">
+            @errorMessage
+        </div>
+    }
+
+    @if (isWorking)
+    {
+        <p>Working ...</p>
+    }
+    else if (Result != null)
+    {
+        <hr class="my-6 border-slate-500">
+
+        <dl class="tax-figures">
+            <dt>Gross Annual Salary</dt>
+            <dd>@Result.GrossAnnualSalary.ToString("c2")</dd>
+                
+            <dt>Gross Monthly Salary</dt>
+            <dd>@Result.GrossMonthlySalary.ToString("c2")</dd>
+
+            <dt>Net Annual Salary</dt>
+            <dd>@Result.NetAnnualSalary.ToString("c2")</dd>
+
+            <dt>Net Monthly Salary</dt>
+            <dd>@Result.NetMonthlySalary.ToString("c2")</dd>
+
+            <dt>Annual Tax Paid</dt>
+            <dd>@Result.AnnualTaxPaid.ToString("c2")</dd>
+
+            <dt>Monthly Tax Paid</dt>
+            <dd>@Result.MonthlyTaxPaid.ToString("c2")</dd>
+        </dl>
+    }
+</section>

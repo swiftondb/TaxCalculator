@@ -1,0 +1,63 @@
+﻿@using Microsoft.AspNetCore.Components.Web
+@namespace TaxCalculator.Pages
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="~/" />
+
+    <!-- Note: Tailwind CSS CDN is not recommended for production use -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+        @@layer base {
+            body {
+                @@apply bg-slate-200;
+            }
+        }
+
+        @@layer utilities {
+            .validation-message {
+                @@apply mt-2 text-red-700;
+            }
+
+            .tax-figures {
+                @@apply p-2 grid grid-cols-2 grid-cols-[max-content,200px] font-mono;
+            }
+
+            .tax-figures > dt, .tax-figures > dd {
+                @@apply my-1 border-b border-dotted border-slate-500;
+            }
+
+            .tax-figures dd {
+                @@apply text-right font-bold font-mono;
+            }
+        }
+    </style>
+
+
+    <component type="typeof(HeadOutlet)" render-mode="ServerPrerendered" />
+</head>
+<body>
+    @RenderBody()
+
+    <div id="blazor-error-ui" class="hidden fixed z-50 shadow bg-yellow-100 bottom-0 left-0 w-full py-5 px-4">
+        <environment include="Staging,Production">
+            An error has occurred. This application may no longer respond until reloaded.
+        </environment>
+        <environment include="Development">
+            An unhandled exception has occurred. See browser dev tools for details.
+        </environment>
+        <button type="button" class="text-blue-600 hover:underline" onclick="window.location.reload()">
+            Reload
+        </button>
+        <button type="button" class="cursor-pointer absolute top-50 right-4" onclick="document.getElementById('blazor-error-ui').style.display = 'none'">
+            🗙
+        </button>
+    </div>
+
+    <script src="_framework/blazor.server.js"></script>
+</body>
+</html>
