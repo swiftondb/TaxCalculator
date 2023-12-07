@@ -6,13 +6,13 @@ using TaxCalculator.Infrastructure.Contexts;
 
 namespace TaxCalculator.Infrastructure;
 
-public static class ConfiugreInfrastructureServices
+public static class ConfigureInfrastructureServices
 {
     public static IServiceCollection AddInfrastructureServices(this IServiceCollection services)
     {
         services.AddDbContextFactory<AppDbContext>(options =>
         {
-            var connection = new SqliteConnection("DataSource=UspSharedDb;mode=memory;cache=shared");
+            var connection = new SqliteConnection("DataSource=TaxCalculatordDb;mode=memory;cache=shared");
             connection.Open();
 
             options.UseSqlite(connection);

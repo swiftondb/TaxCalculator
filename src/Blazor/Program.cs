@@ -18,15 +18,11 @@ builder.Services.AddServerSideBlazor();
 
 var app = builder.Build();
 
-// Initialise and seed database
+// Initialise database (required for in-memory Sqllite database)
 using (var scope = app.Services.CreateScope())
 {
-    //var initialiser = scope.ServiceProvider.GetRequiredService<AppDbContextInitialiser>();
-    //initialiser.Initialise();
-    //initialiser.Seed();
-
-    var c = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    c.Database.Migrate();
+    var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    context.Database.Migrate();
 }
 
 // Configure the HTTP request pipeline.
