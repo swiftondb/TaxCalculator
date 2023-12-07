@@ -5,7 +5,7 @@ A basic tax calculator to demonstrate application structure and design patterns.
 
 ## Overview
 
-The has been application using the Clean Architecure (or an interpretation of it). The Application & Domain sproject live at the centre and other projects depend on these.
+It has been created using the Clean Architecure (or an interpretation of it). The Application & Domain projects live at the centre and other projects depend on these.
 
 The Domain project contains just the entities used within the application (just TaxBand) and contains no business logic.
 
@@ -38,7 +38,7 @@ The following open source libraries were used as part of the application:
 
 | Name | Licence | Purpose |
 | --- | --- | --- |
-| FluentValidation | Apache-2.0 | Create powerful and validation rules |
+| FluentValidation | Apache-2.0 | Create powerful and flexible validation rules |
 | Blazored.FluentValidation | MIT | Blazor extension for FluentValidation |
 | MediatR | Apache-2.0 | Mediate requests from UI to application |
 | Moq | BSD-3-Clause | Mocks classes/interfaces for testing |
