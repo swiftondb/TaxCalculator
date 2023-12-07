@@ -9,7 +9,7 @@ It has been created using the Clean Architecure (or an interpretation of it). Th
 
 The **Domain** project contains just the entities used within the application (just `TaxBand`) and contains no business logic.
 
-The **Application** project contaions the implementation of the actual logic required, in this case calculating tax based on multiple tax bands. This exposes interfaces for any external functionality it requires, for example, persisting data to a store.
+The **Application** project contains the implementation of the actual logic required, in this case calculating tax based on multiple tax bands. This exposes interfaces for any external functionality it requires, for example, persisting data to a store.
 In this case, the **Application** project exposes an `IPersistence` interface which the **Infrastructure** project implements with the help of Entity Framework.
 
 In theory, the user interface project (Blazor) will only depend on the **Application** project. In practice, it also depends on **Infrastructure** so it can setup dependency injection.
